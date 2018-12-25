@@ -1,0 +1,8 @@
+# ninja log v5
+0	33	1545711315	CMakeFiles/cpp_demo.dir/src/Main.cpp.o	4477b88b0ae8c89b
+0	661	1545711462	CMakeFiles/cpp_demo.dir/src/Main.cpp.o	4477b88b0ae8c89b
+661	785	1545711462	cpp_demo	39098e26a133bd59
+1	441	1545711733	CMakeFiles/cpp_demo.dir/src/Main.cpp.o	4477b88b0ae8c89b
+441	563	1545711733	cpp_demo	39098e26a133bd59
+1	463	1545712586	CMakeFiles/cpp_demo.dir/src/Main.cpp.o	f90372f69fb7ac06
+464	587	1545712586	cpp_demo	1a912b7768aa154a
