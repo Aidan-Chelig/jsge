@@ -10,11 +10,10 @@ set (source_dir "${PROJECT_SOURCE_DIR}/src/")
 
 file (GLOB source_files "${source_dir}/*.cpp")
 
-include_directories("/usr/include/GLFW/"
-                    "/usr/include/GL/"
-                    "${PROJECT_SOURCE_DIR}/include/")
+include_directories("${PROJECT_SOURCE_DIR}/include/"
+                    "/usr/include/")
 
-add_executable(cpp_demo
+add_executable(jsge
   ${source_files})
 
-target_link_libraries(cpp_demo glfw GL GLEW)
+target_link_libraries(jsge sfml-graphics sfml-window sfml-system )

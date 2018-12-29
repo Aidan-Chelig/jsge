@@ -22,7 +22,7 @@ rule CUSTOM_COMMAND
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__cpp_demo
+rule CXX_COMPILER__jsge
   depfile = $DEP_FILE
   deps = gcc
   command = /usr/bin/c++  $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -32,7 +32,7 @@ rule CXX_COMPILER__cpp_demo
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__cpp_demo
+rule CXX_EXECUTABLE_LINKER__jsge
   command = $PRE_LINK && /usr/bin/c++  $FLAGS  $LINK_FLAGS $in  -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -42,7 +42,7 @@ rule CXX_EXECUTABLE_LINKER__cpp_demo
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /usr/bin/cmake -S/home/aidan/Projects/c++/Workspace/jsge -B/home/aidan/Projects/c++/Workspace/jsge/build/default
+  command = /usr/bin/cmake -S/home/icyhate/Projects/c++/Workspace/jsge -B/home/icyhate/Projects/c++/Workspace/jsge/build/default
   description = Re-running CMake...
   generator = 1
 
@@ -51,7 +51,7 @@ rule RERUN_CMAKE
 # Rule for cleaning all built files.
 
 rule CLEAN
-  command = /home/aidan/v8/depot_tools/ninja -t clean
+  command = /usr/bin/ninja -t clean
   description = Cleaning all built files...
 
 
@@ -59,6 +59,6 @@ rule CLEAN
 # Rule for printing all primary targets available.
 
 rule HELP
-  command = /home/aidan/v8/depot_tools/ninja -t targets
+  command = /usr/bin/ninja -t targets
   description = All primary targets available:
 

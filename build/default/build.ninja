@@ -34,48 +34,48 @@ include rules.ninja
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/aidan/Projects/c++/Workspace/jsge/build/default && /usr/bin/cmake -S/home/aidan/Projects/c++/Workspace/jsge -B/home/aidan/Projects/c++/Workspace/jsge/build/default
+  COMMAND = cd /home/icyhate/Projects/c++/Workspace/jsge/build/default && /usr/bin/cmake -S/home/icyhate/Projects/c++/Workspace/jsge -B/home/icyhate/Projects/c++/Workspace/jsge/build/default
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
-# Object build statements for EXECUTABLE target cpp_demo
+# Object build statements for EXECUTABLE target jsge
 
 
 #############################################
-# Order-only phony target for cpp_demo
+# Order-only phony target for jsge
 
-build cmake_object_order_depends_target_cpp_demo: phony || CMakeFiles/cpp_demo.dir
-build CMakeFiles/cpp_demo.dir/src/Main.cpp.o: CXX_COMPILER__cpp_demo ../../src/Main.cpp || cmake_object_order_depends_target_cpp_demo
+build cmake_object_order_depends_target_jsge: phony || CMakeFiles/jsge.dir
+build CMakeFiles/jsge.dir/src/Main.cpp.o: CXX_COMPILER__jsge ../../src/Main.cpp || cmake_object_order_depends_target_jsge
   DEFINES = -DGLEW_STATIC
-  DEP_FILE = CMakeFiles/cpp_demo.dir/src/Main.cpp.o.d
+  DEP_FILE = CMakeFiles/jsge.dir/src/Main.cpp.o.d
   FLAGS = -Wall -Werror -std=c++14   -std=gnu++11
-  INCLUDES = -I/usr/include/GLFW -I/usr/include/GL -I../../include
-  OBJECT_DIR = CMakeFiles/cpp_demo.dir
-  OBJECT_FILE_DIR = CMakeFiles/cpp_demo.dir/src
+  INCLUDES = -I../../include
+  OBJECT_DIR = CMakeFiles/jsge.dir
+  OBJECT_FILE_DIR = CMakeFiles/jsge.dir/src
 
 # =============================================================================
-# Link build statements for EXECUTABLE target cpp_demo
+# Link build statements for EXECUTABLE target jsge
 
 
 #############################################
-# Link the executable cpp_demo
+# Link the executable jsge
 
-build cpp_demo: CXX_EXECUTABLE_LINKER__cpp_demo CMakeFiles/cpp_demo.dir/src/Main.cpp.o
+build jsge: CXX_EXECUTABLE_LINKER__jsge CMakeFiles/jsge.dir/src/Main.cpp.o
   FLAGS = -Wall -Werror -std=c++14
-  LINK_LIBRARIES = -lglfw -lGL -lGLEW
-  OBJECT_DIR = CMakeFiles/cpp_demo.dir
+  LINK_LIBRARIES = -lsfml-graphics -lsfml-window -lsfml-system
+  OBJECT_DIR = CMakeFiles/jsge.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = cpp_demo
-  TARGET_PDB = cpp_demo.dbg
+  TARGET_FILE = jsge
+  TARGET_PDB = jsge.dbg
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/aidan/Projects/c++/Workspace/jsge/build/default && /usr/bin/cmake-gui -S/home/aidan/Projects/c++/Workspace/jsge -B/home/aidan/Projects/c++/Workspace/jsge/build/default
+  COMMAND = cd /home/icyhate/Projects/c++/Workspace/jsge/build/default && /usr/bin/cmake-gui -S/home/icyhate/Projects/c++/Workspace/jsge -B/home/icyhate/Projects/c++/Workspace/jsge/build/default
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -94,7 +94,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 #############################################
 # The main all target.
 
-build all: phony cpp_demo
+build all: phony jsge
 
 #############################################
 # Make the all target the default.

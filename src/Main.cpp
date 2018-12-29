@@ -1,59 +1,23 @@
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
+#include <SFML/Graphics.hpp>
 
-#include <iostream>
+int main(){
+  sf::RenderWindow window(sf::VideoMode(200, 200), "SFML WORKS!");
+  sf::CircleShape shape(100.f);
+  shape.setFillColor(sf::Color::Green);
 
-int main(void)
-{
-    GLFWwindow* window;
-
-    /* Initialize the library */
-
-    if (!glfwInit())
-        return -1;
-
-    glewInit();
-
-    /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
-    if (!window)
+  while (window.isOpen())
+  {
+    sf::Event event;
+    while (window.pollEvent(event))
     {
-        glfwTerminate();
-        return -1;
+      if (event.type == sf::Event::Closed)
+        window.close();
     }
 
-    /* Make the window's context current */
-    glfwMakeContextCurrent(window);
+    window.clear();
+    window.draw(shape);
+    window.display();
 
-    if(glewInit() != GLEW_OK)
-      std::cout << "could not inialize glew!" << std::endl;
-
-    std::cout << glGetString(GL_VERSION) << std::endl;
-
-    float positions[6] = {
-      -0.5f, -0.5f,
-       0.0f,  0.5f,
-       0.5f, -0.5f
-    };
-    
-    unsigned int buffer;
-    glGenBuffers(1, &buffer);
-    glBindBuffer(GL_ARRAY_BUFFER, buffer);
-    glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float));
-
-    /* Loop until the user closes the window */
-    while (!glfwWindowShouldClose(window))
-    {
-        /* Render here */
-        glClear(GL_COLOR_BUFFER_BIT);
-
-        /* Swap front and back buffers */
-        glfwSwapBuffers(window);
-
-        /* Poll for and process events */
-        glfwPollEvents();
-    }
-
-    glfwTerminate();
-    return 0;
+  }
+  return 0;
 }
