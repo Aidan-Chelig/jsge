@@ -9,5 +9,5 @@ if [ $1 == 'run' ]
 then
   cd build/default
   ninja
-  ./cpp_demo
+  ./jsge
 fi

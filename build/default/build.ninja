@@ -34,7 +34,7 @@ include rules.ninja
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/icyhate/Projects/c++/Workspace/jsge/build/default && /usr/bin/cmake -S/home/icyhate/Projects/c++/Workspace/jsge -B/home/icyhate/Projects/c++/Workspace/jsge/build/default
+  COMMAND = cd /home/aidan/Projects/c++/Workspace/jsge/build/default && /usr/bin/cmake -S/home/aidan/Projects/c++/Workspace/jsge -B/home/aidan/Projects/c++/Workspace/jsge/build/default
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -47,11 +47,18 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # Order-only phony target for jsge
 
 build cmake_object_order_depends_target_jsge: phony || CMakeFiles/jsge.dir
+build CMakeFiles/jsge.dir/src/Game.cpp.o: CXX_COMPILER__jsge ../../src/Game.cpp || cmake_object_order_depends_target_jsge
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles/jsge.dir/src/Game.cpp.o.d
+  FLAGS = -Wall -Werror -std=c++14   -std=gnu++11
+  INCLUDES = -I../../dependencies/include -I/usr/include/SDL2
+  OBJECT_DIR = CMakeFiles/jsge.dir
+  OBJECT_FILE_DIR = CMakeFiles/jsge.dir/src
 build CMakeFiles/jsge.dir/src/Main.cpp.o: CXX_COMPILER__jsge ../../src/Main.cpp || cmake_object_order_depends_target_jsge
-  DEFINES = -DGLEW_STATIC
+  DEFINES = -DSFML_STATIC
   DEP_FILE = CMakeFiles/jsge.dir/src/Main.cpp.o.d
   FLAGS = -Wall -Werror -std=c++14   -std=gnu++11
-  INCLUDES = -I../../include
+  INCLUDES = -I../../dependencies/include -I/usr/include/SDL2
   OBJECT_DIR = CMakeFiles/jsge.dir
   OBJECT_FILE_DIR = CMakeFiles/jsge.dir/src
 
@@ -62,9 +69,10 @@ build CMakeFiles/jsge.dir/src/Main.cpp.o: CXX_COMPILER__jsge ../../src/Main.cpp 
 #############################################
 # Link the executable jsge
 
-build jsge: CXX_EXECUTABLE_LINKER__jsge CMakeFiles/jsge.dir/src/Main.cpp.o
+build jsge: CXX_EXECUTABLE_LINKER__jsge CMakeFiles/jsge.dir/src/Game.cpp.o CMakeFiles/jsge.dir/src/Main.cpp.o
   FLAGS = -Wall -Werror -std=c++14
-  LINK_LIBRARIES = -lsfml-graphics -lsfml-window -lsfml-system
+  LINK_LIBRARIES = -Wl,-rpath,/home/aidan/Projects/c++/Workspace/jsge/dependencies/lib -lSDL2main -lSDL2 -lGL
+  LINK_PATH = -L/home/aidan/Projects/c++/Workspace/jsge/dependencies/lib
   OBJECT_DIR = CMakeFiles/jsge.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -75,7 +83,7 @@ build jsge: CXX_EXECUTABLE_LINKER__jsge CMakeFiles/jsge.dir/src/Main.cpp.o
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/icyhate/Projects/c++/Workspace/jsge/build/default && /usr/bin/cmake-gui -S/home/icyhate/Projects/c++/Workspace/jsge -B/home/icyhate/Projects/c++/Workspace/jsge/build/default
+  COMMAND = cd /home/aidan/Projects/c++/Workspace/jsge/build/default && /usr/bin/cmake-gui -S/home/aidan/Projects/c++/Workspace/jsge -B/home/aidan/Projects/c++/Workspace/jsge/build/default
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
