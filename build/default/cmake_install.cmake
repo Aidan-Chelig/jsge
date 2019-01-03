@@ -1,4 +1,4 @@
-# Install script for directory: /home/aidan/Projects/c++/Workspace/jsge
+# Install script for directory: /home/icyhate/Projects/c++/Workspace/jsge
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/aidan/Projects/c++/Workspace/jsge/build/default/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/icyhate/Projects/c++/Workspace/jsge/build/default/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
