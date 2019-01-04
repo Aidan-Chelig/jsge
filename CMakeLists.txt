@@ -1,10 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 set(CMAKE_CXX_STANDARD 11)
 
-add_compile_definitions(SFML_STATIC)
-
-project(HelloWorld)
-
+project(jsge)
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
@@ -23,9 +20,6 @@ include_directories("${PROJECT_SOURCE_DIR}/dependencies/include/v8/"
                     "${PROJECT_SOURCE_DIR}/dependencies/include/GL/"
                     "${Project_SOURCE_DIR}/vendor/spdlog/include/")
 
-add_executable(jsge
-  ${source_files}
-  ${header_files})
-
+add_executable(jsge ${source_files} ${header_files})
 
 target_link_libraries(jsge ${static_libs} Threads::Threads)

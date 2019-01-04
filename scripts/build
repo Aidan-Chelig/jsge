@@ -1,0 +1,32 @@
+#!/bin/bash
+
+BUILD_DIR=$PWD/build/default
+
+clean()
+{
+  rm -rf $BUILD_DIR
+  mkdir -p $BUILD_DIR
+}
+
+if [ $1 == 'build' ]
+then
+  clean
+  pushd $BUILD_DIR
+    cmake -GNinja ../..
+  popd
+fi
+
+if [ $1 == 'make' ]
+then
+  pushd $BUILD_DIR
+    ninja
+  popd
+fi
+
+if [ $1 == 'run' ]
+then
+  pushd $BUILD_DIR
+    ninja
+    ./jsge
+  popd
+fi
