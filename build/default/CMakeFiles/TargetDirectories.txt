@@ -1,3 +1,0 @@
-/home/icyhate/Projects/c++/Workspace/jsge/build/default/CMakeFiles/rebuild_cache.dir
-/home/icyhate/Projects/c++/Workspace/jsge/build/default/CMakeFiles/jsge.dir
-/home/icyhate/Projects/c++/Workspace/jsge/build/default/CMakeFiles/edit_cache.dir

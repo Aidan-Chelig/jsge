@@ -14,12 +14,13 @@ set (source_dir "${PROJECT_SOURCE_DIR}/src/")
 link_directories("${PROJECT_SOURCE_DIR}/dependencies/lib/")
 
 file (GLOB_RECURSE source_files "${source_dir}/*.cpp")
-file (GLOB_RECURSE header_files "${source_dir}/*.hpp")
+file (GLOB_RECURSE header_files "${source_dir}/*.h")
 
-file (GLOB_RECURSE static_libs "${PROJECT_SOURCE_DIR}/dependencies/lib/*.a")
+file (GLOB_RECURSE static_libs "${PROJECT_SOURCE_DIR}/dependencies/lib/*.dylib")
 
-include_directories("${PROJECT_SOURCE_DIR}/dependencies/include/"
-                    "/usr/include/SDL2/"
+include_directories("${PROJECT_SOURCE_DIR}/dependencies/include/v8/"
+                    "${PROJECT_SOURCE_DIR}/dependencies/include/SDL2/"
+                    "${PROJECT_SOURCE_DIR}/dependencies/include/GL/"
                     "${Project_SOURCE_DIR}/vendor/spdlog/include/")
 
 add_executable(jsge
@@ -27,4 +28,4 @@ add_executable(jsge
   ${header_files})
 
 
-target_link_libraries(jsge SDL2main SDL2 GL SDL2_image ${static_libs} Threads::Threads)
+target_link_libraries(jsge ${static_libs} Threads::Threads)
