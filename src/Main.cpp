@@ -1,6 +1,6 @@
 #include "Game.h"
 
-Game *game = nullptr;
+Game* game = nullptr;
 
 int main(){
   game = new Game();

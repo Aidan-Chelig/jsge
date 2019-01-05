@@ -1,8 +1,5 @@
 #include "Game.h"
 
-SDL_Texture* playerTex;
-
-
 Game::Game(){
 
 }
@@ -12,9 +9,9 @@ Game::~Game(){
 }
 
 void Game::init(const char *title, int xpos, int ypos, int width, int height, bool fullscreen){
-  int flags = 0;
+  int flags = SDL_WINDOW_OPENGL;
   if(fullscreen){
-    flags = SDL_WINDOW_FULLSCREEN;
+    flags = flags | SDL_WINDOW_FULLSCREEN;
   }
 
   if(SDL_Init(SDL_INIT_EVERYTHING) == 0){
@@ -25,19 +22,23 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
       std::cout << "window created" << std::endl;
     }
 
-    renderer = SDL_CreateRenderer(window, -1, 0);
-    if(renderer){
-      SDL_SetRenderDrawColor(renderer, 255,255,255,255);
-      std::cout << "renderer created" << std::endl;
-    }
-    isRunning = true;
-  } else {
-    isRunning = false;
-  }
-  SDL_Surface* tmpSurface = IMG_Load("assets/player.png");
-  playerTex = SDL_CreateTextureFromSurface(renderer, tmpSurface);
-  SDL_FreeSurface(tmpSurface);
+    SDL_GL_CreateContext(window);
 
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+
+    SDL_GL_SetSwapInterval(1);
+
+    glewExperimental = GL_TRUE;
+    glewInit();
+    isRunning = true;
+  }
+
+  glClearColor(0.0, 0.0, 0.0, 1.0);
+  glClear(GL_COLOR_BUFFER_BIT);
+  SDL_GL_SwapWindow(window);
 }
 
 void Game::handleEvents(){
@@ -50,25 +51,17 @@ void Game::handleEvents(){
     default:
       break;
   }
-
-
 }
 
 void Game::update(){
-
 }
 
 void Game::render(){
-  SDL_RenderClear(renderer);
-  SDL_RenderCopy(renderer, playerTex, NULL, NULL);
-  SDL_RenderPresent(renderer);
-
 }
 
 void Game::clean(){
+  SDL_GL_DeleteContext(context);
   SDL_DestroyWindow(window);
-  SDL_DestroyRenderer(renderer);
   SDL_Quit();
   std::cout << "cleaned up" << std::endl;
-
 }

@@ -13,19 +13,25 @@ link_directories("${PROJECT_SOURCE_DIR}/dependencies/lib/")
 file (GLOB_RECURSE source_files "${source_dir}/*.cpp")
 file (GLOB_RECURSE header_files "${source_dir}/*.h")
 
-if(WIN32)
-  file (GLOB_RECURSE static_libs "${PROJECT_SOURCE_DIR}/dependencies/lib/*.dll")
-elseif(APPLE)
-  file (GLOB_RECURSE static_libs "${PROJECT_SOURCE_DIR}/dependencies/lib/*.dylib")
+if(CMAKE_SIZEOF_VOID_P EQUAL 8) 
+    set(arch "x64")
 else() 
-  file (GLOB_RECURSE static_libs "${PROJECT_SOURCE_DIR}/dependencies/lib/*.so")
+    set(arch "x86") 
 endif()
 
-include_directories("${PROJECT_SOURCE_DIR}/dependencies/include/v8/"
+include_directories("${PROJECT_SOURCE_DIR}/dependencies/include/"
   "${PROJECT_SOURCE_DIR}/dependencies/include/SDL2/"
-  "${PROJECT_SOURCE_DIR}/dependencies/include/GL/"
   "${Project_SOURCE_DIR}/vendor/spdlog/include/")
 
 add_executable(jsge ${source_files} ${header_files})
+
+if(WIN32)
+  file (GLOB_RECURSE static_libs "${PROJECT_SOURCE_DIR}/dependencies/lib/${arch}/*.dll")
+elseif(APPLE)
+  file (GLOB_RECURSE static_libs "${PROJECT_SOURCE_DIR}/dependencies/lib/${arch}/*.dylib")
+  target_link_libraries(jsge "-framework OpenGL")
+else()
+  file (GLOB_RECURSE static_libs "${PROJECT_SOURCE_DIR}/dependencies/lib/${arch}/*.so")
+endif()
 
 target_link_libraries(jsge ${static_libs} Threads::Threads)
