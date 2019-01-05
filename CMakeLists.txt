@@ -13,12 +13,18 @@ link_directories("${PROJECT_SOURCE_DIR}/dependencies/lib/")
 file (GLOB_RECURSE source_files "${source_dir}/*.cpp")
 file (GLOB_RECURSE header_files "${source_dir}/*.h")
 
-file (GLOB_RECURSE static_libs "${PROJECT_SOURCE_DIR}/dependencies/lib/*.dylib")
+if(WIN32)
+  file (GLOB_RECURSE static_libs "${PROJECT_SOURCE_DIR}/dependencies/lib/*.dll")
+elseif(APPLE)
+  file (GLOB_RECURSE static_libs "${PROJECT_SOURCE_DIR}/dependencies/lib/*.dylib")
+else() 
+  file (GLOB_RECURSE static_libs "${PROJECT_SOURCE_DIR}/dependencies/lib/*.so")
+endif()
 
 include_directories("${PROJECT_SOURCE_DIR}/dependencies/include/v8/"
-                    "${PROJECT_SOURCE_DIR}/dependencies/include/SDL2/"
-                    "${PROJECT_SOURCE_DIR}/dependencies/include/GL/"
-                    "${Project_SOURCE_DIR}/vendor/spdlog/include/")
+  "${PROJECT_SOURCE_DIR}/dependencies/include/SDL2/"
+  "${PROJECT_SOURCE_DIR}/dependencies/include/GL/"
+  "${Project_SOURCE_DIR}/vendor/spdlog/include/")
 
 add_executable(jsge ${source_files} ${header_files})
 
