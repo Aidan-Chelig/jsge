@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "ModManager.h"
 
 Game::Game(){
 
@@ -39,6 +40,8 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
   glClearColor(0.0, 0.0, 0.0, 1.0);
   glClear(GL_COLOR_BUFFER_BIT);
   SDL_GL_SwapWindow(window);
+  ModManager* mm = new ModManager();
+  mm->init();
 }
 
 void Game::handleEvents(){

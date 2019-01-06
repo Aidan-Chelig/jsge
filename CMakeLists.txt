@@ -26,12 +26,15 @@ include_directories("${PROJECT_SOURCE_DIR}/dependencies/include/"
 add_executable(jsge ${source_files} ${header_files})
 
 if(WIN32)
+  add_compile_definitions(WINDOWS)
   file (GLOB_RECURSE static_libs "${PROJECT_SOURCE_DIR}/dependencies/lib/${arch}/*.dll")
 elseif(APPLE)
+  add_compile_definitions(MAC)
   file (GLOB_RECURSE static_libs "${PROJECT_SOURCE_DIR}/dependencies/lib/${arch}/*.dylib")
   target_link_libraries(jsge "-framework OpenGL")
 else()
+  add_compile_definitions(LINUX)
   file (GLOB_RECURSE static_libs "${PROJECT_SOURCE_DIR}/dependencies/lib/${arch}/*.so")
 endif()
 
-target_link_libraries(jsge ${static_libs} Threads::Threads)
+target_link_libraries(jsge ${static_libs} Threads::Threads GL)
