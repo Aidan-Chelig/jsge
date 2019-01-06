@@ -1,5 +1,5 @@
-#ifndef Game_h
-#define Game_h
+#ifndef GAME_H_
+#define GAME_H_
 
 #include <stdio.h>
 #include <iostream>
@@ -7,6 +7,7 @@
 #include "SDL.h"
 #include "SDL_image.h"
 #include "SDL_opengl.h"
+#include "ModManager.h"
 
 class Game {
   
@@ -29,4 +30,4 @@ private:
   SDL_GLContext context;
 };
 
-#endif /* Game_hpp */
+#endif /* Game_h */

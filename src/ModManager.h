@@ -1,5 +1,5 @@
-#ifndef ModManager_h
-#define ModManager_h
+#ifndef MODMANAGER_H_
+#define MODMANAGER_H_
 
 #include <stdio.h>
 #include <iostream>
