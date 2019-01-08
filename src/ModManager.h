@@ -2,7 +2,10 @@
 #define MODMANAGER_H_
 
 #include <stdio.h>
+#include <dirent.h>
 #include <iostream>
+#include <string>
+#include <vector>
 #ifdef WINDOWS
 #include <direct.h>
 #define GetCurrentDir _getcwd
@@ -10,6 +13,7 @@
 #include <unistd.h>
 #define GetCurrentDir getcwd
 #endif
+
 
 class ModManager {
   

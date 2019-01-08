@@ -34,10 +34,11 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
     isRunning = true;
   }
 
-  glClearColor(0.0, 0.0, 0.0, 1.0);
+  glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
   glClear(GL_COLOR_BUFFER_BIT);
   SDL_GL_SwapWindow(window);
   ModManager* mm = new ModManager();
+
   mm->init();
 }
 
