@@ -39,7 +39,7 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
   SDL_GL_SwapWindow(window);
   ModManager* mm = new ModManager();
 
-  mm->init();
+  mm->Init();
 }
 
 void Game::handleEvents(){

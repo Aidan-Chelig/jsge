@@ -1,5 +1,5 @@
-#ifndef MODMANAGER_H_
-#define MODMANAGER_H_
+#ifndef GLOBALS_H_
+#define GLOBALS_H_
 
 #include <stdio.h>
 #include <dirent.h>
@@ -7,6 +7,7 @@
 #include <string>
 #include <vector>
 #ifdef WINDOWS
+
 #include <direct.h>
 #define GetCurrentDir _getcwd
 #else
@@ -15,17 +16,19 @@
 #endif
 
 
-class ModManager {
+class Globals {
   
 public:
-  ModManager();
-  ~ModManager();
+  Globals();
+  ~Globals();
 
-  void init();
-  
-
+  static std::string getWorkingDir();
+  static std::string getModDir();
 
 private:
+  static std::string workingDir;
+  static std::string modDir;
+
 };
 
-#endif /* ModManager_h */
+#endif /* GLOBALS_H_ */

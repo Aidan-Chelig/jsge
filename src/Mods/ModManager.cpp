@@ -8,6 +8,7 @@ ModManager::~ModManager(){
 
 }
 
+
  void parseMods(const char* directory){
   DIR *dir;
   struct dirent *ent;
@@ -34,7 +35,7 @@ ModManager::~ModManager(){
   }
 }
 
-void ModManager::init(){
+void ModManager::Init(){
   char buff[FILENAME_MAX];
   GetCurrentDir( buff, FILENAME_MAX );
   std::string current_working_dir(buff);
@@ -43,4 +44,3 @@ void ModManager::init(){
 
   parseMods(mod_dir.c_str());
 }
-

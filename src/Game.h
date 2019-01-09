@@ -7,7 +7,7 @@
 #include "SDL.h"
 #include "SDL_image.h"
 #include "SDL_opengl.h"
-#include "ModManager.h"
+#include "Mods/ModManager.h"
 
 class Game {
   
