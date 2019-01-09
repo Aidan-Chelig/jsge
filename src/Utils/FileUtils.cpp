@@ -1,15 +1,7 @@
-#include "Globals.h"
+#include "FileUtils.h"
 
 std::string Globals::workingDir = "";
 std::string Globals::modDir = "";
-
-Globals::Globals(){
-
-}
-
-Globals::~Globals(){
-
-}
 
 std::string Globals::getWorkingDir(){
   if(workingDir.empty()){

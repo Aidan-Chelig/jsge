@@ -19,15 +19,13 @@
 class Globals {
   
 public:
-  Globals();
-  ~Globals();
-
   static std::string getWorkingDir();
   static std::string getModDir();
 
 private:
   static std::string workingDir;
   static std::string modDir;
+  Globals(){}
 
 };
 
