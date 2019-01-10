@@ -29,4 +29,4 @@ public:
 private:
 };
 
-#endif /* ModManager_h */
+#endif /* MODMANAGER_H_ */

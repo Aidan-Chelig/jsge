@@ -30,4 +30,4 @@ private:
   SDL_GLContext context;
 };
 
-#endif /* Game_h */
+#endif /* GAME_H_ */

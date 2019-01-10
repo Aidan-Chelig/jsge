@@ -11,4 +11,4 @@ public:
 
 };
 
-#endif
+#endif /* VECTOR3_H_ */
