@@ -1,9 +1,18 @@
 #ifndef COMPONENT_H_
 #define COMPONENT_H_
 
-typedef enum {
-  COMPONENT_NONE = 0,
-  COMPONENT_TRANSFORM = 1 << 0,
-} Component;
+class Component {
+
+public:
+  Component();
+  Component(int);
+  ~Component();
+
+  int getMask() { return mask; }
+
+protected:
+  int mask;
+
+};
 
 #endif /* COMPONENT_H_ */
