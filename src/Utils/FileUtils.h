@@ -1,23 +1,22 @@
-#ifndef GLOBALS_H_
-#define GLOBALS_H_
+#ifndef FILEUTILS_H_
+#define FILEUTILS_H_
 
 #include <stdio.h>
 #include <dirent.h>
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
+#include <streambuf>
 
 class FileUtils {
   
 public:
-  static std::string getDirContents();
-  static std::string getFileAsString();
-
+  static std::vector<std::string> getDirContents(std::string path);
+  static std::string readFileAsString(std::string path);
 private:
-  static std::string workingDir;
-  static std::string modDir;
-  Globals(){}
+  FileUtils(){}
 
 };
 
-#endif /* GLOBALS_H_ */
+#endif /* FILEUTILS_H_ */

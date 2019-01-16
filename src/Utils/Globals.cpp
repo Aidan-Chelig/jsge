@@ -8,8 +8,7 @@ std::string Globals::getWorkingDir(){
   char buff[FILENAME_MAX];
   GetCurrentDir( buff, FILENAME_MAX );
   workingDir = buff;
-  workingDir = workingDir + "/";
-  modDir = workingDir + "Mods/";
+  modDir = workingDir + "/Mods";
   }
   return workingDir;
 }
