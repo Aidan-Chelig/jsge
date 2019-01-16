@@ -6,7 +6,8 @@ clean()
 {
   rm -rf $BUILD_DIR
   mkdir -p $BUILD_DIR
-  ln -s ../../Mods $BUILD_DIR/Mods
+  cd $BUILD_DIR
+  ln -s ../../Mods ./Mods
 }
 
 if [ $1 == 'build' ]
