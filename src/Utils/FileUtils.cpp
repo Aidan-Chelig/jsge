@@ -6,7 +6,6 @@ std::vector<std::string> FileUtils::getDirContents(std::string path){
   struct dirent *ent;
   std::vector<std::string> dirs;
   if((dir = opendir(path.c_str())) != NULL) {
-    seekdir(dir, 2);
     while ((ent = readdir (dir)) != NULL) {
       dirs.push_back(std::string(ent->d_name));
     }
@@ -17,7 +16,7 @@ std::vector<std::string> FileUtils::getDirContents(std::string path){
   return dirs;
 }
 
-std::string readFileAsString(std::string path){
+std::string FileUtils::readFileAsString(std::string path){
   std::ifstream t(path);
   std::string str;
 

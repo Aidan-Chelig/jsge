@@ -2,7 +2,7 @@
 
 Mod::Mod(json m, std::string path){
  manifest = m;
- std::cout << path << std::endl;
+ std::cout << "Mod " << m["name"].get<std::string>() << " created!" << std::endl;
 }
 
 Mod::~Mod(){

@@ -6,7 +6,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <nlohmann/json.hpp>
 #include "Mod.h"
+#include "../Utils/FileUtils.h"
+#include "../Utils/Globals.h"
 #ifdef WINDOWS
 #include <direct.h>
 #define GetCurrentDir _getcwd
@@ -14,6 +17,7 @@
 #include <unistd.h>
 #define GetCurrentDir getcwd
 #endif
+using json = nlohmann::json;
 
 
 class ModManager {
@@ -27,6 +31,7 @@ public:
 
 
 private:
+  std::vector<Mod> Mods;
 };
 
 #endif /* ModManager_h */

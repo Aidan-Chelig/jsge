@@ -12,8 +12,8 @@
 class FileUtils {
   
 public:
-  static std::vector<std::string> getDirContents(std::string path);
   static std::string readFileAsString(std::string path);
+  static std::vector<std::string> getDirContents(std::string path);
 private:
   FileUtils(){}
 
