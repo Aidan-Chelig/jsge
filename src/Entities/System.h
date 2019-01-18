@@ -1,6 +1,8 @@
 #ifndef SYSTEM_H_
 #define SYSTEM_H_
 
+#include "Entity.h"
+
 class System {
 
 public:
@@ -9,6 +11,8 @@ public:
   ~System();
 
   int getMask() { return mask; }
+
+  void update(Entity* entities);
 
 protected:
   int mask;

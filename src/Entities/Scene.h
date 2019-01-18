@@ -15,7 +15,7 @@ public:
 
 private:
   EntityManager entityManager;
-  SystemManager systemManager;
+  SystemManager* systemManager;
 
 };
 

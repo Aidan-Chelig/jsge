@@ -2,12 +2,13 @@
 #define SYSTEMMANAGER_H_
 
 #include "System.h"
+#include "EntityManager.h"
 #include <vector>
 
 class SystemManager {
 
 public:
-  SystemManager();
+  SystemManager(EntityManager&);
   ~SystemManager();
 
   template<class System> void registerSystem();
@@ -16,6 +17,8 @@ public:
 
 private:
   std::vector<System> systems;
+
+  EntityManager& entityManager;
 
 };
 

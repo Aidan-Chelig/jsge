@@ -9,3 +9,6 @@ System::System(int mask){
 
 System::~System(){
 }
+
+void System::update(Entity* entities){
+}
