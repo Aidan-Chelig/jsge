@@ -5,6 +5,8 @@
 #include <iostream>
 #include <nlohmann/json.hpp>
 #include <string>
+#include "libplatform/libplatform.h"
+#include "v8.h"
 using json = nlohmann::json;
 
 
@@ -18,6 +20,10 @@ class Mod {
 
   private:
    json manifest; 
+   std::string path;
+   std::string name;
+   std::map<std::string, std::string> assets;
+   std::string index;
 
 };
 

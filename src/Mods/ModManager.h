@@ -10,6 +10,8 @@
 #include "Mod.h"
 #include "../Utils/FileUtils.h"
 #include "../Utils/Globals.h"
+#include "libplatform/libplatform.h"
+#include "v8.h"
 #ifdef WINDOWS
 #include <direct.h>
 #define GetCurrentDir _getcwd
