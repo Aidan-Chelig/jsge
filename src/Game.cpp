@@ -6,7 +6,7 @@ Game::Game(){
 Game::~Game(){
 }
 
-void Game::init(const char *title, int xpos, int ypos, int width, int height, bool fullscreen){
+void Game::init(const char *title, int xpos, int ypos, int width, int height, bool fullscreen, char* argv){
   int flags = SDL_WINDOW_OPENGL;
   if(fullscreen){
     flags = flags | SDL_WINDOW_FULLSCREEN;
@@ -39,7 +39,7 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
   SDL_GL_SwapWindow(window);
   ModManager* mm = new ModManager();
 
-  mm->Init();
+  mm->Init(argv);
 }
 
 void Game::handleEvents(){

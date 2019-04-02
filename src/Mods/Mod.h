@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <stdlib.h>
 #include <nlohmann/json.hpp>
 #include <string>
 #include "libplatform/libplatform.h"
@@ -13,7 +14,7 @@ using json = nlohmann::json;
 class Mod {
 
   public:
-    Mod(json m, std::string path);
+    Mod(json m, std::string path, v8::Isolate* &isolate);
     ~Mod();
 
     
@@ -24,6 +25,8 @@ class Mod {
    std::string name;
    std::map<std::string, std::string> assets;
    std::string index;
+   v8::Isolate* isolate;
+
 
 };
 

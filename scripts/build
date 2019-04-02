@@ -10,7 +10,7 @@ clean()
   ln -s ../../Mods ./Mods
 }
 
-if [ $1 == 'build' ]
+if [ "$1" == 'build' ]
 then
   clean
   pushd $BUILD_DIR
@@ -18,14 +18,14 @@ then
   popd
 fi
 
-if [ $1 == 'make' ]
+if [ "$1" == 'make' ]
 then
   pushd $BUILD_DIR
     ninja
   popd
 fi
 
-if [ $1 == 'run' ]
+if [ "$1" == 'run' ]
 then
   pushd $BUILD_DIR
     ninja

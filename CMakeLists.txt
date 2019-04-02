@@ -6,7 +6,7 @@ project(jsge)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
-set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror -std=c++14")
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++14")
 set (source_dir "${PROJECT_SOURCE_DIR}/src/")
 link_directories("${PROJECT_SOURCE_DIR}/dependencies/lib/")
 
@@ -21,6 +21,7 @@ endif()
 
 include_directories("${PROJECT_SOURCE_DIR}/dependencies/include/"
   "${PROJECT_SOURCE_DIR}/dependencies/include/SDL2/"
+  "${PROJECT_SOURCE_DIR}/dependencies/include/v8/"
   "${Project_SOURCE_DIR}/vendor/spdlog/include/")
 
 add_executable(jsge ${source_files} ${header_files})

@@ -28,7 +28,9 @@ public:
   ModManager();
   ~ModManager();
 
-  void Init();
+  v8::Isolate* _isolate;
+
+  void Init(char* argv);
   
 
 
